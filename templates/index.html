@@ -51,46 +51,59 @@
     <main>
       <div class="slider-container">
         <div class="slider-track" id="slider-track">
-          <img src="{% static 'images/image.png' %}" class="slide" alt="Слайд 1">
-          <div class="slide" style="background-color: red">Слайд 2</div>
-          <div class="slide" style="background-color: blue">Слайд 3</div>
+          <img
+            src="{% static 'images/image16.png' %}"
+            class="slide"
+            alt="Слайд 1"
+          />
+          <img
+            src="{% static 'images/image17.png' %}"
+            class="slide"
+            alt="Слайд 1"
+          />
+          <img
+            src="{% static 'images/image18.png' %}"
+            class="slide"
+            alt="Слайд 1"
+          />
         </div>
       </div>
       <div class="cont">
-      <div class="courses">
-        <h1>Курсы</h1>
-        {% for c in courses %}
-        <div>
-          <h2>{{ c.transport.name }}
-          <hr class="colorless"/>
-
-          </h2>
-          <p>{{ c.about }}</p>
-          <a href="{% url 'requests:create' %}?course={{ c.id }}"
-            >подать заявку
-            </a
-          >
-          <hr />
+        <div class="courses">
+          <h1>Курсы</h1>
+          {% for c in courses %}
+          <div>
+            <h2>
+              {{ c.transport.name }}
+              <hr class="colorless" />
+            </h2>
+            <p>{{ c.about }}</p>
+            <a href="{% url 'requests:create' %}?course={{ c.id }}"
+              >подать заявку
+            </a>
+            <hr />
+          </div>
+          {% empty %}
+          <p>Курсов пока нет.</p>
+          {% endfor %}
         </div>
-        {% empty %}
-        <p>Курсов пока нет.</p>
-        {% endfor %}
-      </div>
-      <div class="reviews">
-        <h1>недавние отзывы</h1>
-        {% for r in reviews %}
-        <div>
-          <p><strong>{{ r.tutorial.course }}
-          <hr class="colorless"/>
-
-          </strong></p>
-          <p>{{ r.value }}</p>
-          <hr />
+        <div class="reviews">
+          <h1>недавние отзывы</h1>
+          {% for r in reviews %}
+          <div>
+            <p>
+              <strong
+                >{{ r.tutorial.course }}
+                <hr class="colorless" />
+              </strong>
+            </p>
+            <p>{{ r.value }}</p>
+            <hr />
+          </div>
+          {% empty %}
+          <p>Отзывов пока нет</p>
+          {% endfor %}
         </div>
-        {% empty %}
-        <p>Отзывов пока нет</p>
-        {% endfor %}
-      </div>
       </div>
     </main>
 
@@ -99,11 +112,9 @@
       const slides = document.querySelectorAll(".slide");
 
       let currentIndex = 0;
-      let slideWidth;
 
-      function updateSlideWidth() {
-        slideWidth = slides[0].offsetWidth;
-        updateSlider();
+      function getSlideWidth() {
+        return slides[0].offsetWidth;
       }
 
       function nextSlide() {
@@ -115,15 +126,16 @@
       }
 
       function updateSlider() {
+        const slideWidth = getSlideWidth();
         track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
       }
 
       window.onload = function () {
-        updateSlideWidth();
+        updateSlider();
         setInterval(nextSlide, 3000);
       };
 
-      window.onresize = updateSlideWidth;
+      window.onresize = updateSlider;
     </script>
   </body>
   {% endif %}

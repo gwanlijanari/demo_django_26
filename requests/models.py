@@ -13,6 +13,7 @@ class Tutorial(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="tutorials", verbose_name="студент")
     status = models.CharField("статус", max_length=20, choices=StatusChoice.choices, default=StatusChoice.new)
     start_date = models.DateField("дата начала", null=True, blank=True)
+    end_date = models.DateField("дата окончания", null=True, blank=True)
     payment_method = models.CharField("способ оплаты", max_length=50)
 
     class Meta:

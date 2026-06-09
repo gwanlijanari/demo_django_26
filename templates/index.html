@@ -1,0 +1,114 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+  {% if user.student %}
+
+  <body>
+    <header>
+      <img src="" alt="" class="logo" />
+
+      <div class="profile" style="position: relative">
+        <h1>{{ user.student.surname }} {{ user.student.name.0 }}.</h1>
+        <div class="pfp">
+          <a href="{% url 'accounts:profile' %}"
+            >{{ user.student.surname.0 }}{{ user.student.name.0 }}</a
+          >
+        </div>
+
+        <div
+          class="drop"
+          onclick="document.getElementById('menu').style.display = 'block'"
+        >
+          &#9660;
+        </div>
+        <div
+          id="menu"
+          style="
+            display: none;
+            position: absolute;
+            background: white;
+            border: #93abbc 1px solid;
+            top: 85px;
+            right: 0;
+          "
+          onmouseleave="this.style.display = 'none'"
+        >
+          <form method="post" action="{% url 'accounts:logout' %}">
+            {% csrf_token %}
+            <button type="submit">Выйти</button>
+          </form>
+          <a href="/admin/"><button>Админка</button></a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="slider-container">
+        <div class="slider-track" id="slider-track">
+          <div class="slide">Слайд 1</div>
+          <div class="slide">Слайд 2</div>
+          <div class="slide">Слайд 3</div>
+        </div>
+      </div>
+      <div class="courses">
+        <h1>Курсы</h1>
+        {% for c in courses %}
+        <div>
+          <h2>{{ c.transport.name }}</h2>
+          <p>{{ c.about }}</p>
+          <a href="{% url 'requests:create' %}?course={{ c.id }}"
+            >подать заявку</a
+          >
+        </div>
+        <hr />
+        {% empty %}
+        <p>Курсов пока нет.</p>
+        {% endfor %}
+      </div>
+      <div class="reviews">
+        <h1>недавние отзывы</h1>
+        {% for r in reviews %}
+        <div>
+          <p><strong>{{ r.tutorial.course }}</strong></p>
+          <p>{{ r.value }}</p>
+        </div>
+        <hr />
+        {% empty %}
+        <p>Отзывов пока нет</p>
+        {% endfor %}
+      </div>
+    </main>
+
+    <script>
+      const track = document.getElementById("slider-track");
+      const slides = document.querySelectorAll(".slide");
+
+      let currentIndex = 0;
+      let slideWidth;
+
+      window.onload = function () {
+        slideWidth = slides[0].offsetWidth;
+        setInterval(nextSlide, 3000);
+      };
+
+      function nextSlide() {
+        currentIndex++;
+        if (currentIndex >= slides.length) {
+          currentIndex = 0;
+        }
+        updateSlider();
+      }
+
+      function updateSlider() {
+        track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
+      }
+    </script>
+  </body>
+  {% endif %}
+</html>

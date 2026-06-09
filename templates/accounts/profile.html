@@ -6,16 +6,16 @@
     <title>Document</title>
   </head>
   <body>
-    <a href="{% url 'courses:index' %}">На главную</a>
-        <main>
+    <a href="{% url 'index' %}">На главную</a>
+    <main>
       <div class="requests">
         <h1>Мои заявки</h1>
         {% for t in tutorials %}
         <div>
           <p><strong>{{ t.course }}</strong> — {{ t.status }}</p>
-          <p>Дата: {{ t.start_date }}</p>
+          <p>длительность: {{ t.start_date }} – {{ t.end_date }}</p>
           <p>Оплата: {{ t.payment_method }}</p>
-          {% if t.status == 'done' %}
+          {% if t.status == 'обучение завершено' %}
           <a href="{% url 'requests:review' t.id %}">Оставить отзыв</a>
           {% endif %}
         </div>

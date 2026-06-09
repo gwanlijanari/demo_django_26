@@ -3,9 +3,13 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import TutorialForm, ReviewForm
 from .models import Tutorial
+from courses.models import Course
 
 @login_required
 def create_tutorial(request):
+    course_id = request.GET.get('course')
+    course = Course.objects.get(id=course_id) if course_id else None
+    
     if request.method == 'POST':
         form = TutorialForm(request.POST)
         if form.is_valid():
@@ -15,9 +19,15 @@ def create_tutorial(request):
             messages.success(request, 'Заявка отправлена')
             return redirect('accounts:profile')
     else:
-        form = TutorialForm()
-    return render(request, 'requests/create.html', {'form': form})
-
+        initial = {}
+        if course:
+            initial['course'] = course
+        form = TutorialForm(initial=initial)
+    
+    return render(request, 'requests/create.html', {
+        'form': form,
+        'course': course,  # ← объект, а не course_id
+    })
 
 @login_required
 def create_review(request, tutorial_id):

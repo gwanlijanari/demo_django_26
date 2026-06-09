@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+#menu{
+  position: relative;
+  z-index: 10;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -112,3 +117,46 @@ main {
   height: 30px;
   cursor: pointer;
 }
+
+@media (390px <= width <= 600px) {
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+}
+
+  .cont{
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.courses {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 45%;
+}
+.reviews {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 45%;
+}
+
+@media (max-width: 800px) {
+  .cont {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .courses, .reviews {
+    width: 100%;
+  }
+}
+
+.colorless{
+    border: none;
+  border-top: 1px solid #d0d7de;
+  opacity: 0.8;}

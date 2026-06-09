@@ -1,4 +1,6 @@
 команды для загрузки данных
+createdb demo_exam_26
+python manage.py migrate
 python manage.py loaddata fixtures/all.json
 
 админ

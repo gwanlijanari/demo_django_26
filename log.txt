@@ -1,9 +1,5 @@
 команды для загрузки данных
-python manage.py loaddata fixtures/accounts.json
-python manage.py loaddata fixtures/students.json
-python manage.py loaddata fixtures/staff.json
-python manage.py loaddata fixtures/courses.json
-python manage.py loaddata fixtures/requests.json
+python manage.py loaddata fixtures/all.json
 
 админ
 admin26 demo20

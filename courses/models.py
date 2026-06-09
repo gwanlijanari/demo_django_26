@@ -1,5 +1,5 @@
 from django.db import models
-from staff.models import Teacher
+
 
 class Transport(models.Model):
     name = models.CharField("название", max_length=50)
@@ -29,13 +29,13 @@ class Course(models.Model):
     )
 
     teacher = models.ForeignKey(
-        Teacher,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name="courses",
-        verbose_name="преподаватель"
-    )
+    'staff.Teacher',
+    on_delete=models.SET_NULL,
+    null=True,
+    blank=True,
+    related_name="courses",
+    verbose_name="преподаватель"
+)
 
     class Meta:
         verbose_name = "курс"

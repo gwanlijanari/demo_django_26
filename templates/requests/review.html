@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Отзыв</title>
-</head>
-<body>
+  </head>
+  <body>
+    <a href="{% url 'accounts:profile' %}">назад</a>
     <h1>Оставить отзыв</h1>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Отправить</button>
-</form>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Отправить</button>
+    </form>
 
-{% if existing_review %}
+    {% if existing_review %}
     <div class="previous_review">
-        <h3>Ваш прошлый отзыв</h3>
-        <p>{{ existing_review.value }}</p>
+      <h3>Ваш прошлый отзыв</h3>
+      <p>{{ existing_review.value }}</p>
     </div>
-{% endif %}
-</body>
+    {% endif %}
+  </body>
 </html>

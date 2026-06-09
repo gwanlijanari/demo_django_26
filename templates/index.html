@@ -51,9 +51,9 @@
     <main>
       <div class="slider-container">
         <div class="slider-track" id="slider-track">
-          <div class="slide">Слайд 1</div>
-          <div class="slide">Слайд 2</div>
-          <div class="slide">Слайд 3</div>
+          <div class="slide" style="background-color: red">Слайд 1</div>
+          <div class="slide" style="background-color: blue">Слайд 2</div>
+          <div class="slide" style="background-color: green">Слайд 3</div>
         </div>
       </div>
       <div class="courses">
@@ -92,10 +92,10 @@
       let currentIndex = 0;
       let slideWidth;
 
-      window.onload = function () {
+      function updateSlideWidth() {
         slideWidth = slides[0].offsetWidth;
-        setInterval(nextSlide, 3000);
-      };
+        updateSlider();
+      }
 
       function nextSlide() {
         currentIndex++;
@@ -108,6 +108,13 @@
       function updateSlider() {
         track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
       }
+
+      window.onload = function () {
+        updateSlideWidth();
+        setInterval(nextSlide, 3000);
+      };
+
+      window.onresize = updateSlideWidth;
     </script>
   </body>
   {% endif %}

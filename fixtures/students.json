@@ -1,0 +1,28 @@
+[
+{
+  "model": "students.student",
+  "pk": 1,
+  "fields": {
+    "name": "иван",
+    "surname": "иванов",
+    "lastname": "иваныч",
+    "birth_date": "2001-05-07",
+    "email": "asdasd@mail.com",
+    "phone": "13123123132123",
+    "account": 2
+  }
+},
+{
+  "model": "students.student",
+  "pk": 2,
+  "fields": {
+    "name": "артем",
+    "surname": "артемовтретьев",
+    "lastname": "артемович",
+    "birth_date": "2001-01-01",
+    "email": "exaple@exm.ex",
+    "phone": "+7 9999999989",
+    "account": 7
+  }
+}
+]

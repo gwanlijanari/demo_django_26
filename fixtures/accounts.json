@@ -1,0 +1,93 @@
+[
+{
+  "model": "accounts.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$d1vtei7LFlnrI8ZDEhYwJV$UD47SvtPC67g4NLJqygJgQQ0/cz6tsWpQm9oQpVULqA=",
+    "last_login": "2026-06-09T11:55:30.723Z",
+    "username": "admin26",
+    "is_staff": true,
+    "is_superuser": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$AQ0G304dpbpuPdLLC37u41$sBXQ2bWhrpPpuiFMYMqtCqj7qvkfw3Luox45hTa/2dg=",
+    "last_login": "2026-06-09T11:53:27.581Z",
+    "username": "first",
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$obhLdEG8b0qxRP0fa97yaf$zdOrG/cE47wTiGfTVQ+pILbT+HKkQO7idleadVW782g=",
+    "last_login": null,
+    "username": "teach1",
+    "is_staff": true,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$sGVJlZcUApRd0sbTSz3eFR$yjlE2JXXLJUPtHj66GXtYz1aLr8uWxpmSQvp4oUS1OE=",
+    "last_login": null,
+    "username": "teach2",
+    "is_staff": true,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$rlCkHksntZAVEMgOXw6UJo$lPuoH8svgBdPAB0vqhFhcO9CteNFQIHKQ/5DT4bWO9s=",
+    "last_login": null,
+    "username": "teach3",
+    "is_staff": true,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$DIzE3Qkyz1fU8OyaJ2HlmD$eOvBkLrXZTixnhpvuQIvOTAlZ2gVLUkO7uyAGPGZjeM=",
+    "last_login": null,
+    "username": "second",
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 7,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$wT8yjqmO2LpkfEShkwo4eG$cah3GqhyZHMRuR/qDtfWbgCITUoiAONXYy/pIZCfJrU=",
+    "last_login": "2026-06-09T10:36:13.905Z",
+    "username": "third",
+    "is_staff": false,
+    "is_superuser": false,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

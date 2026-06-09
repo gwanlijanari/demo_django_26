@@ -1,0 +1,63 @@
+[
+{
+  "model": "requests.tutorial",
+  "pk": 1,
+  "fields": {
+    "title": "",
+    "course": 1,
+    "student": 1,
+    "status": "новая",
+    "start_date": null,
+    "end_date": null,
+    "payment_method": "наличка"
+  }
+},
+{
+  "model": "requests.tutorial",
+  "pk": 2,
+  "fields": {
+    "title": "",
+    "course": 2,
+    "student": 1,
+    "status": "идет обучение",
+    "start_date": "2026-06-15",
+    "end_date": "2026-06-22",
+    "payment_method": "карта"
+  }
+},
+{
+  "model": "requests.tutorial",
+  "pk": 3,
+  "fields": {
+    "title": "",
+    "course": 1,
+    "student": 1,
+    "status": "обучение завершено",
+    "start_date": null,
+    "end_date": null,
+    "payment_method": "нал"
+  }
+},
+{
+  "model": "requests.tutorial",
+  "pk": 4,
+  "fields": {
+    "title": "",
+    "course": 1,
+    "student": 1,
+    "status": "новая",
+    "start_date": "2026-06-01",
+    "end_date": "2026-06-07",
+    "payment_method": "нал"
+  }
+},
+{
+  "model": "requests.review",
+  "pk": 1,
+  "fields": {
+    "student": 1,
+    "tutorial": 3,
+    "value": "отзы норм"
+  }
+}
+]

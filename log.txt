@@ -1,6 +1,20 @@
+команды для загрузки данных
+python manage.py loaddata fixtures/accounts.json
+python manage.py loaddata fixtures/students.json
+python manage.py loaddata fixtures/staff.json
+python manage.py loaddata fixtures/courses.json
+python manage.py loaddata fixtures/requests.json
+
+админ
+admin26 demo20
+
+учителя
 teach1 qwerfghnjk
 teach2 sedftghhjik
 teach3 ghskcdkvvdw
-admin26 demo20
+
+ученики
+first firstpswrd
 second adffadfsfsfasdfads
 third fa3411413
+

@@ -1,0 +1,32 @@
+[
+{
+  "model": "staff.teacher",
+  "pk": 1,
+  "fields": {
+    "name": "петр",
+    "surname": "автобусов",
+    "lastname": "петрович",
+    "account": 3
+  }
+},
+{
+  "model": "staff.teacher",
+  "pk": 2,
+  "fields": {
+    "name": "антон",
+    "surname": "трамваев",
+    "lastname": "антонович",
+    "account": 4
+  }
+},
+{
+  "model": "staff.teacher",
+  "pk": 3,
+  "fields": {
+    "name": "роман",
+    "surname": "тролейбусов",
+    "lastname": "ромаович",
+    "account": 5
+  }
+}
+]

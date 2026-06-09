@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="{% url 'courses:index' %}">На главную</a>
+        <main>
+      <div class="requests">
+        <h1>Мои заявки</h1>
+        {% for t in tutorials %}
+        <div>
+          <p><strong>{{ t.course }}</strong> — {{ t.status }}</p>
+          <p>Дата: {{ t.start_date }}</p>
+          <p>Оплата: {{ t.payment_method }}</p>
+          {% if t.status == 'done' %}
+          <a href="{% url 'requests:review' t.id %}">Оставить отзыв</a>
+          {% endif %}
+        </div>
+        <hr />
+        {% empty %}
+        <p>Заявок пока нет.</p>
+        {% endfor %}
+      </div>
+
+      <div class="reviews">
+        <h1>Мои отзывы</h1>
+        {% for r in reviews %}
+        <div>
+          <p><strong>{{ r.tutorial.course }}</strong></p>
+          <p>{{ r.value }}</p>
+        </div>
+        <hr />
+        {% empty %}
+        <p>Отзывов пока нет</p>
+        {% endfor %}
+      </div>
+    </main>
+  </body>
+</html>

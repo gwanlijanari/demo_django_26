@@ -4,6 +4,7 @@ from unfold.admin import ModelAdmin
 
 @admin.register(Tutorial)
 class TutorialAdmin(ModelAdmin):
+    list_filter = ["course"]
     list_display = ["title", "course", "student","status"]
     list_editable = ["status"]
 

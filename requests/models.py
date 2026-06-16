@@ -8,14 +8,17 @@ class Tutorial(models.Model):
         active = "идет обучение"
         done = "обучение завершено"
 
+    class PaymentChoices(models.TextChoices):
+        cash = "наличными", "Наличными"
+        transfer = "переводом", "Переводом"
+
     title = models.CharField("название", max_length=50)
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True, blank=True, related_name="tutorials", verbose_name="курс")
     student = models.ForeignKey(Student, on_delete=models.CASCADE, related_name="tutorials", verbose_name="студент")
     status = models.CharField("статус", max_length=20, choices=StatusChoice.choices, default=StatusChoice.new)
     start_date = models.DateField("дата начала", null=True, blank=True)
     end_date = models.DateField("дата окончания", null=True, blank=True)
-    payment_method = models.CharField("способ оплаты", max_length=50)
-
+    payment_method = models.CharField("способ оплаты", max_length=20, choices=PaymentChoices.choices, default=PaymentChoices.cash)
     class Meta:
         verbose_name = "заявка"
         verbose_name_plural = "заявки"

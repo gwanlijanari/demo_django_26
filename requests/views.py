@@ -49,7 +49,7 @@ def create_review(request, tutorial_id):
             messages.success(request, 'Отзыв сохранён')
             return redirect('accounts:profile')
     else:
-        form = ReviewForm(instance=existing)
+        form = ReviewForm()
     
     return render(request, 'requests/review.html', {
         'form': form,

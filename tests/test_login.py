@@ -4,6 +4,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
+@pytest.mark.positive
 @pytest.mark.django_db
 def test_login_success(client):
     User.objects.create_user(username='login_user', password='StrongP@ssw0rd123')
@@ -19,7 +20,7 @@ def test_login_success(client):
     assert response.status_code == 302
     assert response.wsgi_request.user.is_authenticated
 
-
+@pytest.mark.negative
 @pytest.mark.django_db
 def test_login_fail(client):
     User.objects.create_user(username='login_user', password='StrongP@ssw0rd123')

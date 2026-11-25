@@ -6,6 +6,7 @@ from courses.models import Course
 
 User = get_user_model()
 
+@pytest.mark.positive
 @pytest.mark.django_db
 def test_enroll_in_course(client):
     user = User.objects.create_user(username='student1', password='password123')

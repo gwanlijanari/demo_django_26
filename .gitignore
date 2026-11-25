@@ -17,3 +17,10 @@ __pycache__/
 
 .idea/
 .vscode/
+
+htmlcov/
+.coverage
+.coverage.*
+
+allure-results/
+allure-report/

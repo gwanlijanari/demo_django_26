@@ -4,7 +4,7 @@ from django.contrib.auth import get_user_model
 
 User = get_user_model()
 
-
+@pytest.mark.positive
 @pytest.mark.django_db
 def test_register(client):
     url = reverse("accounts:register")

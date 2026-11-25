@@ -6,6 +6,7 @@ from courses.models import Course
 
 User = get_user_model()
 
+@pytest.mark.negative
 @pytest.mark.django_db
 def test_review_only_for_done_tutorial(client):
     user = User.objects.create_user(username='student1', password='password123')
@@ -23,6 +24,7 @@ def test_review_only_for_done_tutorial(client):
     
     assert not Review.objects.filter(tutorial=active_tutorial).exists()
     
+@pytest.mark.positive
 @pytest.mark.django_db
 def test_review_for_done_tutorial(client):
     user = User.objects.create_user(username='student2', password='password123')
